@@ -16,7 +16,7 @@
     "axios": "^0.21.1",
     "systemjs": "^6.8.3",
     "vue": "^3.0.5",
-    "vue-pandora-decorators": "^1.0.7"
+    "vue-pandora-decorators": "^1.1.0"
   },
   "devDependencies": {
     "@koa/router": "^10.0.0",

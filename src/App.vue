@@ -13,7 +13,9 @@ export default class extends Vue {
 
     public get component() {
         return defineAsyncComponent(async () => {
-            return sysort('http://localhost:8082/_oss_component/Test/index.js').then(({ Component }) => Component);
+            const { Component, Config } = await sysort.import('http://localhost:8082/_oss_component/Test/index.js');
+            console.log(Config);
+            return Component;
         });
     }
 
