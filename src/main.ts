@@ -1,21 +1,13 @@
-import { createApp } from "vue";
-import { defineComponent, h } from 'vue';
-import App from "./App.vue";
+import Vue from 'vue';
+import * as middlewares from '@/core/middlewares';
+import store from '@/store';
+import { map } from 'lodash';
+import App from './app.vue';
 
-export const Compvar = defineComponent({
-    props: {
-        component: { required: true }
-    },
-    render() {
-        const Comp: any = this.component;
-        // return Comp ? <Comp /> : <div />
-        return h(Comp ? Comp : 'div');
-    }
-});
-
-
-const app = createApp(App);
-
-app.component('comp-var', Compvar);
-
-app.mount("#app");
+Promise.all(map(middlewares, async middleware => {
+    await middleware(Vue);
+})).then(() => new Vue({
+    el: `#app`, router: Vue.prototype._router,
+    store, i18n: Vue.prototype._i18n,
+    render: h => h(App),
+}));
