@@ -4,6 +4,9 @@ import store from '@/store';
 import { map } from 'lodash';
 import App from './app.vue';
 
+sessionStorage.setItem('sessiontoken', 'test');
+sessionStorage.setItem('freshtoken', 'test');
+
 Promise.all(map(middlewares, async middleware => {
     await middleware(Vue);
 })).then(() => new Vue({

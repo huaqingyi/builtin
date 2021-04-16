@@ -51,4 +51,20 @@ export default [
     },
     retentionRouter,
     toolsRouter,
+    {
+        path: '/test',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+                name: 'Dashboard',
+                meta: {
+                    title: t('route.test'),
+                    icon: 'dashboard',
+                    affix: true
+                }
+            }
+        ]
+    },
 ];
