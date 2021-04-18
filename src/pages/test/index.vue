@@ -59,14 +59,23 @@ export default class extends Vue {
     public async created() {
         const group = groupBy(this.asts, 'parentId');
         const tree = this.cycleParse(group);
-        this.ast = tree;
+        this.ast = [
+            {
+                tag: 'ctnrflex', children: [
+                    { tag: 'ctnrflex', children: [], style: { minHeight: '20px', background: 'green' } },
+                    { tag: 'ctnrcontainer', children: [], style: { minHeight: '20px', background: 'blue' } },
+                ], style: { width: '100%', minHeight: '20px', background: 'green' },
+            },
+        ];
     }
 }
 </script>
 <style lang="less" scoped>
 .main {
-    display: flex;
+    position: absolute;
+    width: 100%;
     height: 100%;
+    display: flex;
     .data {
         width: 20%;
     }

@@ -1,14 +1,36 @@
 <template>
-    <draggable
+    <!-- <draggable
+        v-if="parent"
         v-bind="dragOptions"
         tag="div"
-        class="container"
+        class="container-drag"
+        :list="list"
+        :value="value"
+        @input="emitter"
+    >
+        <renodes v-for="el in realValue" :key="el.id" :list="el.children" />
+    </draggable>
+    <draggable
+        v-else
+        v-bind="dragOptions"
+        :tag="parent.tag"
+        :style="parent.style"
         :list="list"
         :value="value"
         @input="emitter"
     >
         <component v-for="el in realValue" :key="el.id" :style="el.style" :is="el.tag">
-            <renodes class="item-sub" :list="el.children" />
+            <renodes :list="el.children" />
+        </component>
+    </draggable>-->
+    <draggable v-if="!parent" class="dragArea" tag="div" :group="{ name: 'g1' }">
+        <component v-for="el in realValue" :key="el.tag" :is="el.tag" :style="el.style">
+            <renodes :list="el.children" :parent="el" />
+        </component>
+    </draggable>
+    <draggable v-else :tag="parent.tag" :style="parent.style" :group="{ name: 'g1' }">
+        <component v-for="el in realValue" :key="el.tag" :is="el.tag" :style="el.style">
+            <renodes :list="el.children" :parent="el" />
         </component>
     </draggable>
 </template>
@@ -38,6 +60,9 @@ export default class Renodes extends Vue {
     @Prop({ type: Array, required: false, default: null })
     public value!: any[];
 
+    @Prop({ type: Object, required: false, default: null })
+    public parent?: any;
+
     constructor() {
         super(arguments);
     }
@@ -51,7 +76,7 @@ export default class Renodes extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.container {
+.container-drag {
     width: 100%;
     height: 100%;
 }
