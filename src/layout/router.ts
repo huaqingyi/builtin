@@ -57,7 +57,8 @@ export default [
         children: [
             {
                 path: '',
-                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+                // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
                 name: 'Dashboard',
                 meta: {
                     title: t('route.test'),

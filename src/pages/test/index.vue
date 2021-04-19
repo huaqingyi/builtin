@@ -24,6 +24,7 @@
 import { groupBy, map } from 'lodash';
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
+import Axios from 'axios';
 
 @Component({ components: { draggable } })
 export default class extends Vue {
@@ -31,6 +32,8 @@ export default class extends Vue {
     public asts: any[];
 
     public ast: any[];
+
+    public view: any;
 
     public get components() {
         return [
@@ -56,6 +59,7 @@ export default class extends Vue {
         super(arguments);
         this.asts = [];
         this.ast = [];
+        this.view = {};
     }
 
     public cloneDog(data) {
@@ -85,6 +89,10 @@ export default class extends Vue {
             //     ], style: { width: '100%', minHeight: '20px', background: 'green' },
             // },
         ];
+        Axios.create({}).get(`http://localhost:8080/js/jz-button.js`).then(({ data }) => {
+            const { Config, Component } = eval(data);
+            console.log(Component);
+        });
     }
 }
 </script>

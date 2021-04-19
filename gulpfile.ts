@@ -1,8 +1,8 @@
 import { GFile, Core, Task } from 'gyi';
 import minimist from 'minimist';
-import { Service } from './build/service';
 import webpack from 'webpack';
 import config from './build/component';
+import { Service } from './build/service';
 
 @GFile
 export class GulpFile extends Core {

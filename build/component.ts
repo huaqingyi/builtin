@@ -13,9 +13,9 @@ readdirSync(join(__dirname, '../components')).forEach((p: string) => {
     pngs.push({
         from: join(__dirname, '../components', p, 'cover.png'), to: join(__dirname, '../packages', p, 'cover.png'),
     });
-    pngs.push({
-        from: join(__dirname, '../components', p, 'config.ts'), to: join(__dirname, '../packages', p, 'config.ts'),
-    });
+    // pngs.push({
+    //     from: join(__dirname, '../components', p, 'config.ts'), to: join(__dirname, '../packages', p, 'config.ts'),
+    // });
 });
 
 export default (env: any = {}): Configuration => ({

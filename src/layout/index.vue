@@ -27,9 +27,6 @@ import { SettingsModule } from '@/store/modules/settings';
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components';
 import RightPanel from '@/components/RightPanel/index.vue';
 import ResizeMixin from './mixin/resize';
-import { Action, State } from 'vuex-class';
-import { ContainerStore } from '@/layout/store';
-import { InitDataResponse } from '@/layout/service';
 
 @Component({
     name: 'Layout',
@@ -43,7 +40,7 @@ import { InitDataResponse } from '@/layout/service';
     },
 })
 export default class extends mixins(ResizeMixin) {
-    get classObj() {
+    public get classObj() {
         return {
             hideSidebar: !this.sidebar.opened,
             openSidebar: this.sidebar.opened,
@@ -52,15 +49,15 @@ export default class extends mixins(ResizeMixin) {
         };
     }
 
-    get showSettings() {
+    public get showSettings() {
         return SettingsModule.showSettings;
     }
 
-    get showTagsView() {
+    public get showTagsView() {
         return SettingsModule.showTagsView;
     }
 
-    get fixedHeader() {
+    public get fixedHeader() {
         return SettingsModule.fixedHeader;
     }
 
@@ -75,7 +72,7 @@ export default class extends mixins(ResizeMixin) {
         // console.log(this.initData);
     }
 
-    private handleClickOutside() {
+    public handleClickOutside() {
         AppModule.CloseSideBar(false);
     }
 }

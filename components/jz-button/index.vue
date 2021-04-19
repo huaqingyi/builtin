@@ -11,8 +11,8 @@ import { Button } from 'element-ui';
 @Component({ components: { Button } })
 export default class extends Vue {
 
-    @Prop({ type: String, required:false, default: 'primary' })
-    public type!:string;
+    @Prop({ type: String, required: false, default: 'primary' })
+    public type!: string;
 
     constructor() {
         super(arguments);
@@ -21,5 +21,7 @@ export default class extends Vue {
 </script>
 <style lang="less" scoped>
 .main {
+    width: auto;
+    height: auto;
 }
 </style>

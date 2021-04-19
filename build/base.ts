@@ -8,7 +8,7 @@ export default {
         name: process.env.VUE_PROJECT_NAME,
         workboxPluginMode: 'InjectManifest',
         workboxOptions: {
-            swSrc: join(__dirname, '../src/pwa/service-worker.js')
+            swSrc: join(__dirname, '../src/core/middlewares/pwa/service-worker.js')
         }
     },
     parallel: cpus().length > 1,
