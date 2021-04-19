@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="jz-root">
         <slot></slot>
     </div>
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({ name: 'jz-flex' })
 export default class extends Vue {
 
     constructor() {
@@ -16,8 +16,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
 }
 </style>

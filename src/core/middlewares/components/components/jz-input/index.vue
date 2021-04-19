@@ -1,6 +1,6 @@
 <template>
     <Input
-        class="main"
+        class="jz-root"
         v-model="value"
         :placeholder="placeholder"
         :disabled="disabled"
@@ -15,7 +15,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Input } from 'element-ui';
 
-@Component({ components: { Input } })
+@Component({ name: 'jz-input', components: { Input } })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: '请输入内容' })
@@ -49,7 +49,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
     width: 200px;
+    display: inline-block;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <span class="main">
+    <div class="jz-root">
         <DatePicker
             class="date"
             v-if="type === 'date'"
@@ -54,7 +54,7 @@
             :start-placeholder="placeholder"
             :end-placeholder="placeholder"
         />
-    </span>
+    </div>
 </template>
   
 <script lang="ts">
@@ -71,7 +71,7 @@ export enum DateType {
     MONTHRANGE = 'monthrange',
 }
 
-@Component({ components: { DatePicker } })
+@Component({ name: 'jz-datepicker', components: { DatePicker } })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: DateType.DATE })
@@ -94,9 +94,9 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
-    display: inline-block;
+.jz-root {
     width: 200px;
+    display: inline-block;
     .date {
         width: 100%;
     }

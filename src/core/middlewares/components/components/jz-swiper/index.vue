@@ -1,6 +1,6 @@
 <template>
     <Carousel
-        class="main"
+        class="jz-root"
         :type="type"
         :autoplay="autoplay"
         :direction="direction"
@@ -32,7 +32,7 @@ export enum CarouselPositionType {
     NONE = 'none',
 }
 
-@Component({ components: { Carousel, CarouselItem } })
+@Component({ name: 'jz-swiper', components: { Carousel, CarouselItem } })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: CarouselType.DEFAULT })
@@ -59,7 +59,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
+    display: inline-block;
     .el-carousel__item {
         background-color: #99a9bf;
     }

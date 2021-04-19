@@ -1,5 +1,5 @@
 <template>
-    <span v-if="options.length === 1" class="main">
+    <div v-if="options.length === 1" class="jz-root">
         <Checkbox
             v-if="type === 'default'"
             :label="options[0].value"
@@ -10,8 +10,8 @@
             :label="options[0].value"
             :disabled="options[0].disabled || false"
         >{{ options[0].label }}</CheckboxButton>
-    </span>
-    <span v-else class="main">
+    </div>
+    <div v-else class="jz-root">
         <div v-if="cckall" class="branch">
             <Checkbox
                 v-if="type === 'default'"
@@ -42,7 +42,7 @@
                 :disabled="opt.disabled || false"
             >{{ opt.label }}</CheckboxButton>
         </CheckboxGroup>
-    </span>
+    </div>
 </template>
   
 <script lang="ts">
@@ -61,7 +61,7 @@ export enum CheckboxType {
     DEFALUT = 'default',
 }
 
-@Component({ components: { Checkbox, CheckboxGroup, CheckboxButton } })
+@Component({ name: 'jz-checkbox', components: { Checkbox, CheckboxGroup, CheckboxButton } })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: `全选` })
@@ -137,7 +137,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
     display: inline-block;
     .branch {
         border-bottom: 1px solid #e9e9e9;

@@ -1,5 +1,5 @@
 <template>
-    <span class="main">
+    <div class="jz-root">
         <div class="container">
             <div class="content">
                 <i v-if="builtin" :class="builtin" :style="{ color, backgroundColor }" />
@@ -10,13 +10,13 @@
                 />
             </div>
         </div>
-    </span>
+    </div>
 </template>
   
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({ name: 'jz-icon' })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: 'el-icon-edit' })
@@ -37,8 +37,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
-    min-width: 20px;
+.jz-root {
+    width: 20px;
     display: inline-block;
     .container {
         width: 100%;

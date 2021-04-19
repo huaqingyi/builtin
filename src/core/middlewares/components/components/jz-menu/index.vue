@@ -1,5 +1,5 @@
 <template>
-    <Menu :mode="mode" :collapse="collapse" class="main">
+    <Menu :mode="mode" :collapse="collapse" class="jz-root">
         <MenuNode
             :mode="mode"
             v-for="(opt, idx) in options"
@@ -27,7 +27,7 @@ export enum ModeType {
     VERTICAL = 'vertical',
 }
 
-@Component({ components: { Menu, MenuItem, Submenu, MenuNode } })
+@Component({ name: 'jz-menu', components: { Menu, MenuItem, Submenu, MenuNode } })
 export default class extends Vue {
 
     @Prop({ type: Array, required: false, default: () => [{ name: '添加菜单' }] })
@@ -45,6 +45,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
+    display: inline-block;
 }
 </style>

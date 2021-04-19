@@ -1,19 +1,19 @@
 <template>
-    <span class="main">
+    <div class="jz-root">
         <Input
             type="textarea"
             :placeholder="placeholder"
             :autosize="{ minRows: autosize[0], maxRows: autosize[1] }"
             v-model="value"
         />
-    </span>
+    </div>
 </template>
   
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Input } from 'element-ui';
 
-@Component({ components: { Input } })
+@Component({ name: 'jz-textarea', components: { Input } })
 export default class extends Vue {
 
     @Prop({ type: Array, required: false, default: () => [2, 4] })
@@ -31,8 +31,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
-    display: inline-block;
+.jz-root {
     width: 300px;
+    display: inline-block;
 }
 </style>

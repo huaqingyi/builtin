@@ -1,5 +1,5 @@
 <template>
-    <RadioGroup v-if="type === 'default'" v-model="value" class="main">
+    <RadioGroup v-if="type === 'default'" v-model="value" class="jz-root">
         <Radio
             v-for="(opt,idx) in options"
             :key="idx"
@@ -7,7 +7,7 @@
             :disabled="opt.disabled"
         >{{ opt.label }}</Radio>
     </RadioGroup>
-    <RadioGroup v-else v-model="value" class="main">
+    <RadioGroup v-else v-model="value" class="jz-root">
         <RadioButton
             v-for="(opt,idx) in options"
             :key="idx"
@@ -32,7 +32,7 @@ export enum CheckboxType {
     DEFALUT = 'default',
 }
 
-@Component({ components: { RadioGroup, Radio, RadioButton } })
+@Component({ name: 'jz-radio', components: { RadioGroup, Radio, RadioButton } })
 export default class extends Vue {
 
     @Prop({ type: Array, required: false, default: () => [{ label: '添加选项', value: '添加选项' }] })
@@ -57,6 +57,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
+    display: inline-block;
 }
 </style>

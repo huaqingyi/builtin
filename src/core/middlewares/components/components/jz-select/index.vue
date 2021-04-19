@@ -6,7 +6,7 @@
         :filterable="filterable"
         :allow-create="create"
         :placeholder="placeholder"
-        class="main"
+        class="jz-root"
     >
         <Option v-for="(opt,idx) in options" :key="idx" :option="opt" />
     </Select>
@@ -24,7 +24,7 @@ export interface SelectOptions {
     children?: SelectOptions[];
 }
 
-@Component({ components: { Select, Option } })
+@Component({ name: 'jz-select', components: { Select, Option } })
 export default class extends Vue {
 
     @Prop({ type: Array, required: false, default: () => [{ label: '请添加选项', value: '请添加选项' }] })
@@ -62,7 +62,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
     width: 200px;
+    display: inline-block;
 }
 </style>

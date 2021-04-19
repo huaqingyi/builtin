@@ -1,14 +1,16 @@
 <template>
-    <Collapse v-model="activeNames" :accordion="accordion">
-        <CollapseItem
-            v-for="panel in panels"
-            :key="panelName(panel)"
-            :title="panelName(panel)"
-            :name="panelName(panel)"
-        >
-            <slot :name="panelName(panel)"></slot>
-        </CollapseItem>
-    </Collapse>
+    <div class="jz-root">
+        <Collapse v-model="activeNames" :accordion="accordion">
+            <CollapseItem
+                v-for="panel in panels"
+                :key="panelName(panel)"
+                :title="panelName(panel)"
+                :name="panelName(panel)"
+            >
+                <slot :name="panelName(panel)"></slot>
+            </CollapseItem>
+        </Collapse>
+    </div>
 </template>
   
 <script lang="ts">
@@ -16,7 +18,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Collapse, CollapseItem } from 'element-ui';
 import { map } from 'lodash';
 
-@Component({ components: { Collapse, CollapseItem } })
+@Component({ name: 'jz-collapse', components: { Collapse, CollapseItem } })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: `新建折叠面板` })
@@ -54,3 +56,8 @@ export default class extends Vue {
     }
 }
 </script>
+<style lang="less" scoped>
+.jz-root {
+    display: inline-block;
+}
+</style>

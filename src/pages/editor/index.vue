@@ -1,5 +1,5 @@
 <template>
-    <div class="containerender">
+    <!-- <div class="containerender">
         <div class="data">
             <pre>{{ ast }}</pre>
         </div>
@@ -17,14 +17,27 @@
                 >{{ element.tag }}</div>
             </draggable>
         </div>
+    </div>-->
+    <div class="container">
+        <EDAttrs class="attrs" />
+        <EDContent class="content" />
+        <EDComponent class="component" />
     </div>
 </template>
   
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
+import EDAttrs from './attrs.vue';
+import EDContent from './content.vue';
+import EDComponent from './component.vue';
 
-@Component({ components: { draggable } })
+@Component({
+    components: {
+        draggable,
+        EDAttrs, EDContent, EDComponent,
+    }
+})
 export default class extends Vue {
 
     public asts: any[];
@@ -66,76 +79,14 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.containerender {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.container {
     display: flex;
-    .data {
+    .attrs,
+    .component {
         width: 20%;
     }
-    .context {
+    .content {
         flex: 1;
-        .context-inner {
-            width: 100%;
-            height: auto;
-            .list-group-item-padd {
-                padding: 0.75rem;
-            }
-        }
-    }
-    // .components {
-    //     width: 30%;
-    //     border: 1px solid;
-    //     .components-warrp {
-    //         position: relative;
-    //         width: 25%;
-    //         display: inline-block;
-    //         &:before {
-    //             content: "";
-    //             padding-top: 100%;
-    //             display: block;
-    //         }
-    //         .components-container {
-    //             position: absolute;
-    //             top: 0.75rem;
-    //             right: 0.75rem;
-    //             bottom: 0.75rem;
-    //             left: 0.75rem;
-    //             border: 1px solid red;
-    //             .components-render {
-    //                 position: absolute;
-    //                 top: 50%;
-    //                 right: 50%;
-    //                 transform: translate(50%, -50%);
-    //             }
-    //         }
-    //     }
-    // }
-
-    .flexbox {
-        display: flex;
-    }
-
-    .handle,
-    .fhandle {
-        cursor: pointer;
-        background-color: #675e6f;
-        height: 0.75rem;
-        width: 100%;
-    }
-
-    .row {
-        border: 1px solid;
-    }
-    .flex {
-        display: flex;
-        border: 1px solid;
-        .flex-ctx {
-        }
-        .flex-item {
-            flex: 1;
-        }
     }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <Tabs class="main" v-model="activeName" :type="type">
+    <Tabs class="jz-root" v-model="activeName" :type="type">
         <TabPane v-for="(name, idx) in children" :key="idx" :label="name" :name="name">
             <slot :name="name"></slot>
         </TabPane>
@@ -17,7 +17,7 @@ export enum TabsType {
     DEFALUT = '',
 }
 
-@Component({ components: { Tabs, TabPane } })
+@Component({ name: 'jz-tabs', components: { Tabs, TabPane } })
 export default class extends Vue {
 
     public get children() {
@@ -40,6 +40,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
+.jz-root {
+    display: inline-block;
 }
 </style>
