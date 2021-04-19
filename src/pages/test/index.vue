@@ -8,7 +8,7 @@
             <draggable
                 :list="components"
                 :group="{ name: 'ctx', pull: 'clone', put: false }"
-                item-key="id"
+                :clone="cloneDog"
             >
                 <div
                     class="list-group-item"
@@ -21,7 +21,7 @@
 </template>
   
 <script lang="ts">
-import { groupBy, map, max } from 'lodash';
+import { groupBy, map } from 'lodash';
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
 
@@ -34,8 +34,21 @@ export default class extends Vue {
 
     public get components() {
         return [
-            { tag: 'ctnrflex', children: [], style: { width: '100%', minHeight: '20px', background: 'green' } },
-            { tag: 'ctnrcontainer', children: [], style: { width: '100%', minHeight: '20px', background: 'blue' } },
+            { tag: 'jz-flex', children: [], style: { width: '100%', minHeight: '20px', background: 'green' }, slot: true },
+            { tag: 'jz-container', children: [], style: { width: '100%', minHeight: '20px', background: 'blue' }, slot: true },
+            { tag: 'jz-button', children: [], slot: true },
+            { tag: 'jz-checkbox', children: [], slot: false },
+            { tag: 'jz-datepicker', children: [], slot: false },
+            { tag: 'jz-icon', children: [], slot: false },
+            { tag: 'jz-img', children: [], slot: false },
+            { tag: 'jz-input', children: [], slot: false },
+            { tag: 'jz-menu', children: [], slot: false },
+            { tag: 'jz-radio', children: [], slot: false },
+            { tag: 'jz-select', children: [], slot: false },
+            { tag: 'jz-swiper', children: [], slot: false },
+            { tag: 'jz-tabs', children: [], slot: true },
+            { tag: 'jz-text', children: [], slot: false },
+            { tag: 'jz-textarea', children: [], slot: false },
         ];
     }
 
@@ -43,6 +56,11 @@ export default class extends Vue {
         super(arguments);
         this.asts = [];
         this.ast = [];
+    }
+
+    public cloneDog(data) {
+        // console.log(data);
+        return { id: ''.uniqueId(), ...data };
     }
 
     public cycleParse(group: any, idx: number = 0) {
@@ -60,12 +78,12 @@ export default class extends Vue {
         const group = groupBy(this.asts, 'parentId');
         const tree = this.cycleParse(group);
         this.ast = [
-            {
-                tag: 'ctnrflex', children: [
-                    { tag: 'ctnrflex', children: [], style: { minHeight: '20px', background: 'green' } },
-                    { tag: 'ctnrcontainer', children: [], style: { minHeight: '20px', background: 'blue' } },
-                ], style: { width: '100%', minHeight: '20px', background: 'green' },
-            },
+            // {
+            //     id: ''.uniqueId(), tag: 'jz-flex', children: [
+            //         { id: ''.uniqueId(), tag: 'jz-flex', children: [], style: { width: '100%', minHeight: '20px', background: 'green' } },
+            //         { id: ''.uniqueId(), tag: 'jz-container', children: [], style: { width: '100%', minHeight: '20px', background: 'blue' } },
+            //     ], style: { width: '100%', minHeight: '20px', background: 'green' },
+            // },
         ];
     }
 }
