@@ -1,14 +1,16 @@
 <template>
-    <Button class="main" :type="type">
-        <slot></slot>
-    </Button>
+    <div class="jz-root">
+        <Button :type="type">
+            <slot></slot>
+        </Button>
+    </div>
 </template>
   
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Button } from 'element-ui';
 
-@Component({ components: { Button } })
+@Component({ name: 'jz-button', components: { Button } })
 export default class extends Vue {
 
     @Prop({ type: String, required: false, default: 'primary' })
@@ -20,8 +22,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.main {
-    width: auto;
-    height: auto;
+.jz-root {
+    display: inline-block;
 }
 </style>
