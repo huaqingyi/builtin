@@ -47,6 +47,10 @@ export default {
             type: AttrInputType.SWITCH,
             default: false,
         },
+        def: {
+            title: `默认值`,
+            type: AttrInputType.INPUT,
+        },
     },
     events: {},
 } as ComponentConfiguration;
