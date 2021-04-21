@@ -4,14 +4,9 @@ import {
 import { AttrInputType } from 'jz-component-types/dist/attrs/enums';
 
 export default {
-    name: '文本基础组件',
+    name: '按钮',
     styles,
-    attrs: {
-        text: {
-            title: `编辑文本`,
-            type: AttrInputType.INPUT,
-        },
-    },
+    attrs: {},
     events: {},
-    slots: `请插入元素`
+    slots: `编辑文字`
 } as ComponentConfiguration;

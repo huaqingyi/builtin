@@ -49,16 +49,12 @@
 import { difference, isBoolean, map } from 'lodash';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import { Checkbox, CheckboxGroup, CheckboxButton } from 'element-ui';
+import { CheckboxType } from './types';
 
 export interface CheckboxOption {
     label: string;
     value: string;
     disabled?: boolean;
-}
-
-export enum CheckboxType {
-    BUTTON = 'button',
-    DEFALUT = 'default',
 }
 
 @Component({ name: 'jz-checkbox', components: { Checkbox, CheckboxGroup, CheckboxButton } })
@@ -80,7 +76,7 @@ export default class extends Vue {
     public checked!: string[];
 
     @Prop({ type: Boolean, required: false, default: undefined })
-    public checkAll!: string[];
+    public checkAll!: boolean;
 
     public get ops() {
         return map(this.options, ({ value }) => value);

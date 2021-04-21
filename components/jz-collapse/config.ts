@@ -7,10 +7,10 @@ export default {
     name: '文本基础组件',
     styles,
     attrs: {
-        text: {
-            title: `编辑文本`,
-            type: AttrInputType.INPUT,
-        },
+        accordion: { title: `手拉风琴`, type: AttrInputType.SWITCH, default: true },
     },
     events: {},
+    slots: [
+        { tag: 'div', attrs: { slot: { title: '新建折叠面板', type: AttrInputType.INPUT } } },
+    ]
 } as ComponentConfiguration;

@@ -12,14 +12,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Button } from 'element-ui';
-
-export enum ImageFits {
-    FILL = 'fill',
-    CONTAIN = 'contain',
-    COVER = 'cover',
-    NONE = 'none',
-    SCALEDOWN = 'scale-down',
-}
+import { ImageFits } from './types';
 
 @Component({ name: 'jz-img', components: { Button } })
 export default class extends Vue {
