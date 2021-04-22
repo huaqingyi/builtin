@@ -25,6 +25,12 @@ import { map } from 'lodash';
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
 import Axios from 'axios';
+import { ComponentConfiguration } from 'jz-component-types';
+
+export interface PackEVAL {
+    Config: ComponentConfiguration;
+    Component: Vue;
+}
 
 @Component({ components: { draggable } })
 export default class extends Vue {
@@ -85,9 +91,22 @@ export default class extends Vue {
             { tag: 'jz-textarea' },
         ], async component => {
             const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js`);
-            const { Config, Component } = eval(data);
-            console.log(Config);
-            return { ...component, config: Config, component: Component };
+            const { Config, Component }: PackEVAL = eval(data);
+            const { styles, slots } = Config;
+            const style: any = {};
+            const children: any[] = [];
+            map(styles, (f, attr) => {
+                if (f && f.value) {
+                    style[attr] = f.value;
+                }
+            });
+            if (slots) {
+                map(slots, slot => children.push({
+                    tag: slot.tag, content: slot.content?.default
+                }))
+            }
+            console.log({ ...component, style, children, Config, Component });
+            return { ...component, style, children, Config, Component };
         }));
     }
 }

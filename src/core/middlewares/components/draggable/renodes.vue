@@ -1,7 +1,7 @@
 <template>
     <draggable
         v-bind="dragOptions"
-        :tag="(parent && parent.tag) ? parent.tag : 'div'"
+        :tag="(parent && parent.tag) ? parent.Component : 'div'"
         :style="(parent || {}).style"
         class="draggable"
         :list="list"
@@ -10,7 +10,7 @@
     >
         <template v-for="el in realValue">
             <renodes v-if="el.slot" v-model="el.children" :parent="el" :key="el.id" />
-            <component v-else :style="el.style" :is="el.tag" :key="el.id" />
+            <component v-else :style="el.style" :is="el.Component" :key="el.id" />
         </template>
     </draggable>
 </template>
