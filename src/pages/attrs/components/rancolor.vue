@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="color-container">
         <div class="label">{{ label }}</div>
         <ColorPicker :value="color" @input="onInput" show-alpha />
     </div>
@@ -37,7 +37,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.container {
+.color-container {
     display: inline-block;
     width: auto;
     .label {

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="number-container">
         <div class="label">
             <div class="labelext">{{ label }}</div>
             <div class="curr">
@@ -57,7 +57,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.container {
+.number-container {
     // padding-right: 20px;
     .label {
         display: flex;

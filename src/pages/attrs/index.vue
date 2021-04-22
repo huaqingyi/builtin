@@ -3,16 +3,16 @@
         <!-- <div>
             <div>{{ value }}</div>
             <Ranumber v-model="value" label="宽度" />
-        </div>-->
+        </div> -->
         <!-- <div>
             <div>{{ color }}</div>
             <Rancolor v-model="color" label="颜色" />
             <Rancolor v-model="color" label="颜色11111" />
         </div>-->
-        <div>
+        <!-- <div>
             <div>{{ upload }}</div>
             <Ranload v-model="upload" action="https://jsonplaceholder.typicode.com/posts/" label="图片" />
-        </div>
+        </div> -->
     </div>
 </template>
 <script lang="ts">
@@ -32,7 +32,7 @@ export default class extends Vue {
         super(...arguments);
         this.value = [0, '%'];
         this.color = '';
-        this.upload = '';
+        this.upload = 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg';
     }
 }
 </script>

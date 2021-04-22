@@ -69,39 +69,22 @@ export default [
         ]
     },
     // {
-    //     path: '/test',
+    //     path: '/buitlin',
     //     component: Layout,
     //     children: [
     //         {
     //             path: '',
-    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/buitlin/index.vue'),
     //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
     //             name: 'Dashboard',
     //             meta: {
-    //                 title: t('route.test'),
+    //                 title: t('route.buitlin'),
     //                 icon: 'dashboard',
     //                 affix: true
     //             }
     //         }
     //     ]
     // },
-    {
-        path: '/buitlin',
-        component: Layout,
-        children: [
-            {
-                path: '',
-                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/buitlin/index.vue'),
-                // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
-                name: 'Dashboard',
-                meta: {
-                    title: t('route.buitlin'),
-                    icon: 'dashboard',
-                    affix: true
-                }
-            }
-        ]
-    },
     // {
     //     path: '/attrs',
     //     component: Layout,

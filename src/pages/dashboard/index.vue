@@ -41,7 +41,7 @@
             <div slot="Tabs 1">Tabs Content 1</div>
             <div slot="Tabs 2">Tabs Content 2</div>
             <div slot="Tabs 3">Tabs Content 3</div>
-        </JZTabs> -->
+        </JZTabs>-->
         <!-- <JZText>测试</JZText> -->
         <!-- <JZTextarea /> -->
     </div>
@@ -52,7 +52,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import AdminDashboard from './admin/index.vue';
 import EditorDashboard from './editor/index.vue';
 import { PermissionModule } from '../../store/modules/permission';
-import components from './components';
+import components from '../../core/middlewares/components/components';
 
 @Component({
     name: 'Dashboard',

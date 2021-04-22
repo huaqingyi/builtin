@@ -60,16 +60,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { DatePicker } from 'element-ui';
-
-export enum DateType {
-    DATE = 'date',
-    WEEK = 'week',
-    MONTH = 'month',
-    YEAR = 'year',
-    DATES = 'dates',
-    DATERANGE = 'daterange',
-    MONTHRANGE = 'monthrange',
-}
+import { DateType } from './types';
 
 @Component({ name: 'jz-datepicker', components: { DatePicker } })
 export default class extends Vue {

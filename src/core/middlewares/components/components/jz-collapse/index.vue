@@ -21,7 +21,7 @@ import { map } from 'lodash';
 @Component({ name: 'jz-collapse', components: { Collapse, CollapseItem } })
 export default class extends Vue {
 
-    @Prop({ type: String, required: false, default: `新建折叠面板` })
+    @Prop({ type: String, required: false, default: `新建面板` })
     public title!: string;
 
     @Prop({ type: Boolean, required: false, default: true })

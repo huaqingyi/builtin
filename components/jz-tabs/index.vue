@@ -10,12 +10,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Tabs, TabPane } from 'element-ui';
 import { map } from 'lodash';
-
-export enum TabsType {
-    CARD = 'card',
-    BORDERCARD = 'border-card',
-    DEFALUT = '',
-}
+import { TabsType } from './types';
 
 @Component({ name: 'jz-tabs', components: { Tabs, TabPane } })
 export default class extends Vue {
