@@ -14,17 +14,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Menu, MenuItem, Submenu } from 'element-ui';
 import MenuNode from './menu.vue';
+import { ModeType } from './types';
 
 export interface MenuOptions {
     name: string;
     builtin?: string;
     icon?: string;
     children: MenuOptions[];
-}
-
-export enum ModeType {
-    HORIZONTAL = 'horizontal',
-    VERTICAL = 'vertical',
 }
 
 @Component({ name: 'jz-menu', components: { Menu, MenuItem, Submenu, MenuNode } })

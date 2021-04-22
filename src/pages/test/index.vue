@@ -21,8 +21,10 @@
 </template>
   
 <script lang="ts">
+import { map } from 'lodash';
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
+import Axios from 'axios';
 
 @Component({ components: { draggable } })
 export default class extends Vue {
@@ -31,30 +33,33 @@ export default class extends Vue {
 
     public ast: any[];
 
-    public get components() {
-        return [
-            { tag: 'jz-flex', children: [], style: { width: '100%', minHeight: '20px', background: 'green' }, slot: true },
-            { tag: 'jz-container', children: [], style: { width: '100%', minHeight: '20px', background: 'blue' }, slot: true },
-            { tag: 'jz-button', children: [], slot: true },
-            { tag: 'jz-checkbox', children: [], slot: false },
-            { tag: 'jz-datepicker', children: [], slot: false },
-            { tag: 'jz-icon', children: [], slot: false },
-            { tag: 'jz-img', children: [], slot: false },
-            { tag: 'jz-input', children: [], slot: false },
-            { tag: 'jz-menu', children: [], slot: false },
-            { tag: 'jz-radio', children: [], slot: false },
-            { tag: 'jz-select', children: [], slot: false },
-            { tag: 'jz-swiper', children: [], slot: false },
-            { tag: 'jz-tabs', children: [], slot: true },
-            { tag: 'jz-text', children: [], slot: false },
-            { tag: 'jz-textarea', children: [], slot: false },
-        ];
-    }
+    // public get components() {
+    //     return [
+    //         { tag: 'jz-flex', children: [], style: { width: '100%', minHeight: '20px', background: 'green' }, slot: true },
+    //         { tag: 'jz-container', children: [], style: { width: '100%', minHeight: '20px', background: 'blue' }, slot: true },
+    //         { tag: 'jz-button', children: [], slot: true },
+    //         { tag: 'jz-checkbox', children: [], slot: false },
+    //         { tag: 'jz-datepicker', children: [], slot: false },
+    //         { tag: 'jz-icon', children: [], slot: false },
+    //         { tag: 'jz-img', children: [], slot: false },
+    //         { tag: 'jz-input', children: [], slot: false },
+    //         { tag: 'jz-menu', children: [], slot: false },
+    //         { tag: 'jz-radio', children: [], slot: false },
+    //         { tag: 'jz-select', children: [], slot: false },
+    //         { tag: 'jz-swiper', children: [], slot: false },
+    //         { tag: 'jz-tabs', children: [], slot: true },
+    //         { tag: 'jz-text', children: [], slot: false },
+    //         { tag: 'jz-textarea', children: [], slot: false },
+    //     ];
+    // }
+
+    public components: any[];
 
     constructor() {
         super(arguments);
         this.asts = [];
         this.ast = [];
+        this.components = [];
     }
 
     public cloneDog(data) {
@@ -62,6 +67,28 @@ export default class extends Vue {
     }
 
     public async created() {
+        this.components = await Promise.all(map([
+            { tag: 'jz-flex' },
+            { tag: 'jz-container' },
+            { tag: 'jz-button' },
+            { tag: 'jz-checkbox' },
+            { tag: 'jz-datepicker' },
+            { tag: 'jz-icon' },
+            { tag: 'jz-img' },
+            { tag: 'jz-input' },
+            { tag: 'jz-menu' },
+            { tag: 'jz-radio' },
+            { tag: 'jz-select' },
+            { tag: 'jz-swiper' },
+            { tag: 'jz-tabs' },
+            { tag: 'jz-text' },
+            { tag: 'jz-textarea' },
+        ], async component => {
+            const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js`);
+            const { Config, Component } = eval(data);
+            console.log(Config);
+            return { ...component, config: Config, component: Component };
+        }));
     }
 }
 </script>

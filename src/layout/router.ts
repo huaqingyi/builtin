@@ -68,23 +68,23 @@ export default [
     //         }
     //     ]
     // },
-    // {
-    //     path: '/test',
-    //     component: Layout,
-    //     children: [
-    //         {
-    //             path: '',
-    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
-    //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
-    //             name: 'Dashboard',
-    //             meta: {
-    //                 title: t('route.test'),
-    //                 icon: 'dashboard',
-    //                 affix: true
-    //             }
-    //         }
-    //     ]
-    // },
+    {
+        path: '/test',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+                // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
+                name: 'Dashboard',
+                meta: {
+                    title: t('route.test'),
+                    icon: 'dashboard',
+                    affix: true
+                }
+            }
+        ]
+    },
     // {
     //     path: '/buitlin',
     //     component: Layout,
@@ -102,21 +102,21 @@ export default [
     //         }
     //     ]
     // },
-    {
-        path: '/attrs',
-        component: Layout,
-        children: [
-            {
-                path: '',
-                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/attrs/index.vue'),
-                // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
-                name: 'Dashboard',
-                meta: {
-                    title: t('route.attrs'),
-                    icon: 'dashboard',
-                    affix: true
-                }
-            }
-        ]
-    },
+    // {
+    //     path: '/attrs',
+    //     component: Layout,
+    //     children: [
+    //         {
+    //             path: '',
+    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/attrs/index.vue'),
+    //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
+    //             name: 'Dashboard',
+    //             meta: {
+    //                 title: t('route.attrs'),
+    //                 icon: 'dashboard',
+    //                 affix: true
+    //             }
+    //         }
+    //     ]
+    // },
 ];

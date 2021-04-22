@@ -20,16 +20,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { RadioGroup, Radio, RadioButton } from 'element-ui';
+import { CheckboxType } from './types';
 
 export interface RadioOptions {
     label: string;
     value: string;
     disabled?: boolean;
-}
-
-export enum CheckboxType {
-    BUTTON = 'button',
-    DEFALUT = 'default',
 }
 
 @Component({ name: 'jz-radio', components: { RadioGroup, Radio, RadioButton } })

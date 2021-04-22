@@ -8,5 +8,7 @@ export default {
     styles,
     attrs: {},
     events: {},
-    slots: `编辑文字`
+    slots: [
+        { tag: 'div', content: { title: '编辑内容', type: AttrInputType.INPUT, default: '按钮名称' } },
+    ],
 } as ComponentConfiguration;
