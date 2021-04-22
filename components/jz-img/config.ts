@@ -2,7 +2,7 @@ import {
     ComponentConfiguration, styles
 } from 'jz-component-types';
 import { AttrInputType } from 'jz-component-types/dist/attrs/enums';
-import { ImageFits } from './index.vue.__VLS_script';
+import { ImageFits } from './types';
 
 export default {
     name: '图片',
