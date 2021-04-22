@@ -51,23 +51,23 @@ export default [
     },
     retentionRouter,
     toolsRouter,
-    // {
-    //     path: '/editor',
-    //     component: Layout,
-    //     children: [
-    //         {
-    //             path: '',
-    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/editor/index.vue'),
-    //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
-    //             name: 'Dashboard',
-    //             meta: {
-    //                 title: t('editor.title'),
-    //                 icon: 'dashboard',
-    //                 affix: true
-    //             }
-    //         }
-    //     ]
-    // },
+    {
+        path: '/editor',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/editor/index.vue'),
+                // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
+                name: 'Dashboard',
+                meta: {
+                    title: t('editor.title'),
+                    icon: 'dashboard',
+                    affix: true
+                }
+            }
+        ]
+    },
     // {
     //     path: '/test',
     //     component: Layout,
@@ -85,38 +85,38 @@ export default [
     //         }
     //     ]
     // },
-    // {
-    //     path: '/buitlin',
-    //     component: Layout,
-    //     children: [
-    //         {
-    //             path: '',
-    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/buitlin/index.vue'),
-    //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
-    //             name: 'Dashboard',
-    //             meta: {
-    //                 title: t('route.buitlin'),
-    //                 icon: 'dashboard',
-    //                 affix: true
-    //             }
-    //         }
-    //     ]
-    // },
     {
-        path: '/attrs',
+        path: '/buitlin',
         component: Layout,
         children: [
             {
                 path: '',
-                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/attrs/index.vue'),
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/buitlin/index.vue'),
                 // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
                 name: 'Dashboard',
                 meta: {
-                    title: t('route.attrs'),
+                    title: t('route.buitlin'),
                     icon: 'dashboard',
                     affix: true
                 }
             }
         ]
     },
+    // {
+    //     path: '/attrs',
+    //     component: Layout,
+    //     children: [
+    //         {
+    //             path: '',
+    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/attrs/index.vue'),
+    //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
+    //             name: 'Dashboard',
+    //             meta: {
+    //                 title: t('route.attrs'),
+    //                 icon: 'dashboard',
+    //                 affix: true
+    //             }
+    //         }
+    //     ]
+    // },
 ];

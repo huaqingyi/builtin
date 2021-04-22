@@ -28,9 +28,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
-import EDAttrs from './attrs.vue';
-import EDContent from './content.vue';
-import EDComponent from './component.vue';
+import EDAttrs from './components/attrs.vue';
+import EDContent from './components/content.vue';
+import EDComponent from './components/component.vue';
 
 @Component({
     components: {
@@ -86,6 +86,7 @@ export default class extends Vue {
         width: 20%;
     }
     .content {
+        position: relative;
         flex: 1;
     }
 }
