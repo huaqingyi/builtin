@@ -16,21 +16,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Carousel, CarouselItem } from 'element-ui';
 import { map } from 'lodash';
-
-export enum CarouselType {
-    CARD = 'card',
-    DEFAULT = '',
-}
-
-export enum CarouselDirectionType {
-    VERTICAL = 'vertical',
-    HORIZONTAL = 'horizontal',
-}
-
-export enum CarouselPositionType {
-    OUTSIDE = 'outside',
-    NONE = 'none',
-}
+import { CarouselType, CarouselDirectionType, CarouselPositionType } from './types';
 
 @Component({ name: 'jz-swiper', components: { Carousel, CarouselItem } })
 export default class extends Vue {

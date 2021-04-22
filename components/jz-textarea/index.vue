@@ -22,6 +22,9 @@ export default class extends Vue {
     @Prop({ type: String, required: false, default: '请填写内容' })
     public placeholder!: string;
 
+    @Prop({ type: String, required: false, default: `` })
+    public def!: string;
+
     public value: string;
 
     constructor() {

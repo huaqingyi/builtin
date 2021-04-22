@@ -11,6 +11,6 @@ export default {
     },
     events: {},
     slots: [
-        { tag: 'div', attrs: { slot: { title: '新建折叠面板', type: AttrInputType.INPUT } } },
+        { tag: 'div', attrs: { slot: { title: '新建折叠面板', type: AttrInputType.INPUT } }, noop: true },
     ]
 } as ComponentConfiguration;
