@@ -10,7 +10,7 @@
         <br />
         <br />
         <div ref="shot" class="container">
-            <!-- <div class="comp">
+            <div class="comp">
                 <jz-button>按钮</jz-button>
             </div>
             <div class="comp">
@@ -42,11 +42,11 @@
             </div>
             <div class="comp">
                 <jz-icon />
-            </div> -->
+            </div>
             <div class="comp">
                 <jz-img />
             </div>
-            <!-- <div class="comp">
+            <div class="comp">
                 <jz-input />
             </div>
             <div class="comp">
@@ -101,7 +101,7 @@
             </div>
             <div class="comp">
                 <jz-textarea />
-            </div> -->
+            </div>
         </div>
     </div>
 </template>

@@ -51,34 +51,17 @@ export default [
     },
     retentionRouter,
     toolsRouter,
-    // {
-    //     path: '/editor',
-    //     component: Layout,
-    //     children: [
-    //         {
-    //             path: '',
-    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/editor/index.vue'),
-    //             // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
-    //             name: 'Dashboard',
-    //             meta: {
-    //                 title: t('editor.title'),
-    //                 icon: 'dashboard',
-    //                 affix: true
-    //             }
-    //         }
-    //     ]
-    // },
     {
-        path: '/test',
+        path: '/editor',
         component: Layout,
         children: [
             {
                 path: '',
-                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/editor/index.vue'),
                 // component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index'),
                 name: 'Dashboard',
                 meta: {
-                    title: t('route.test'),
+                    title: t('editor.title'),
                     icon: 'dashboard',
                     affix: true
                 }

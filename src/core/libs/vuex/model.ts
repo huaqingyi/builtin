@@ -1,10 +1,6 @@
 import { VuexModule as VxModule, Module as VModule } from 'vuex-module-decorators';
 import { Module as Mod, Store } from 'vuex';
 import { map, merge } from 'lodash';
-import { Service } from './service';
-import { ModuleOptions } from 'vuex-module-decorators/dist/types/moduleoptions';
-
-export type TLFServiceClass<V> = (new (...args: any[]) => V & Service) & typeof Service;
 
 // tslint:disable-next-line:ban-types
 export function Module<S>(options: { store: Store<any> }): ClassDecorator;

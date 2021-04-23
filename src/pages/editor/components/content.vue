@@ -1,5 +1,7 @@
 <template>
-    <div class="container">Content ...</div>
+    <div>
+        <renodes v-model="ast" class="container" />
+    </div>
 </template>
   
 <script lang="ts">
@@ -21,5 +23,9 @@ export default class extends Vue {
 </script>
 <style lang="less" scoped>
 .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
 }
 </style>
