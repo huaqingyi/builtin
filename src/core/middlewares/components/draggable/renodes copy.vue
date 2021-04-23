@@ -1,16 +1,16 @@
 <template>
     <draggable
         v-bind="dragOptions"
-        :tag="(parent && parent.tag) ? parent.tag : 'div'"
+        :tag="(parent && parent.tag) ? parent.Component : 'div'"
         :style="(parent || {}).style"
-        class="draggable"
+        :class="{ draggable: true, dragbox: parent && parent.tag ? true : false }"
         :list="list"
         :value="value"
         @input="emitter"
     >
         <template v-for="el in realValue">
             <renodes v-if="el.slot" v-model="el.children" :parent="el" :key="el.id" />
-            <component v-else :style="el.style" :is="el.tag" :key="el.id" />
+            <component class="dragbox" v-else :style="el.style" :is="el.Component" :key="el.id" />
         </template>
     </draggable>
 </template>
@@ -60,4 +60,11 @@ export default class Renodes extends Vue {
     position: relative;
     padding: 0.15rem 0.75rem;
 }
+.dragbox {
+    background: rgba(0, 0, 0, 0.05);
+    &:hover {
+        border: 1px dashed #000;
+    }
+}
 </style>
+

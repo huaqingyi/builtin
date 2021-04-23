@@ -11,4 +11,5 @@ export default {
     },
     attrs: {},
     events: {},
+    slot: true,
 } as ComponentConfiguration;

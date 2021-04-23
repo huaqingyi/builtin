@@ -4,6 +4,7 @@ import Dragflex from './dragflex.vue';
 import Dragcontainer from './dragcontainer.vue';
 import Moved from './moved.vue';
 import Renodes from './renodes.vue';
+import TSnder from './tsnder';
 
 export default {
     'ctnrflex': Flex,
@@ -12,4 +13,5 @@ export default {
     'dragcontainer': Dragcontainer,
     'dragmoved': Moved,
     'renodes': Renodes,
+    'tsnder': TSnder,
 };

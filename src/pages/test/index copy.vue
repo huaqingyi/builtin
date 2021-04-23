@@ -92,7 +92,7 @@ export default class extends Vue {
         ], async component => {
             const { data } = await Axios.create({}).get(`http://localhost:8081/js/${component.tag}.js`);
             const { Config, Component }: PackEVAL = eval(data);
-            const { styles, slots, slot = false } = Config;
+            const { styles, slots } = Config;
             const style: any = {};
             const children: any[] = [];
             map(styles, (f, attr) => {
@@ -105,8 +105,8 @@ export default class extends Vue {
                     tag: slot.tag, content: slot.content?.default
                 }))
             }
-            console.log({ ...component, style, children, Config, Component, slot });
-            return { ...component, style, children, Config, Component, slot };
+            console.log({ ...component, style, children, Config, Component });
+            return { ...component, style, children, Config, Component };
         }));
     }
 }
