@@ -26,12 +26,12 @@
                 </jz-collapse>
             </div>
             <div class="comp">
+                <jz-datepicker type="date" />
+            </div>
+            <div class="comp">
                 <jz-container class="with-w">
                     <div class="with-wi"></div>
                 </jz-container>
-            </div>
-            <div class="comp">
-                <jz-datepicker type="date" />
             </div>
             <div class="comp">
                 <jz-flex class="with-w">
@@ -108,7 +108,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { Button } from 'element-ui';
-import components from '../../core/middlewares/components/components';
+import components from './components';
 import html2canvas from 'html2canvas';
 
 @Component({ components: { Button, ...components } })

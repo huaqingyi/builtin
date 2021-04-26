@@ -1,13 +1,17 @@
 <template>
-    <div class="jz-root-cflex">
+    <!-- <div class="jz-root-cflex">
         <slot></slot>
-    </div>
+    </div> -->
+    <Row type="flex" class="jz-root-cflex">
+        <slot></slot>
+    </Row>
 </template>
   
 <script lang="ts">
+import { Row } from 'element-ui';
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({ name: 'jz-container' })
+@Component({ name: 'jz-container', components: { Row } })
 export default class extends Vue {
     constructor() {
         super(arguments);

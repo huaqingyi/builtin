@@ -1,19 +1,24 @@
 <template>
-    <draggable
-        v-bind="dragOptions"
-        tag="tsnder"
-        :component-data="componentData()"
-        :style="(parent || {}).style"
-        :class="{ draggable: true, dragbox: parent && parent.tag ? true : false }"
-        :list="list"
-        :value="value"
-        @input="emitter"
-    >
-        <template v-for="el in realValue">
+    <div>
+        <div class="handle"></div>
+        <draggable
+            v-bind="dragOptions"
+            tag="tsnder"
+            :component-data="componentData()"
+            :style="(parent || {}).style"
+            :class="{ draggable: true, dragbox: parent && parent.tag ? true : false }"
+            handle=".handle"
+            :list="list"
+            :value="value"
+            @input="emitter"
+        >
+            <renodes v-for="el in realValue" v-model="el.children" :parent="el" :key="el.id" />
+            <!-- <template v-for="el in realValue">
             <renodes v-if="el.slot" v-model="el.children" :parent="el" :key="el.id" />
             <tsnder class="dragbox" v-else :style="el.style" :is="el.Component" :key="el.id" />
-        </template>
-    </draggable>
+            </template>-->
+        </draggable>
+    </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
@@ -65,6 +70,11 @@ export default class Renodes extends Vue {
 .draggable {
     position: relative;
     padding: 0.15rem 0.75rem;
+
+    .handle {
+        padding: 0.75rem;
+        background: #000;
+    }
 }
 .dragbox {
     background: rgba(0, 0, 0, 0.05);

@@ -1,13 +1,14 @@
 <template>
-    <div class="jz-root-flex">
+    <Row  class="jz-root" type="flex">
         <slot></slot>
-    </div>
+    </Row>
 </template>
   
 <script lang="ts">
+import { Row } from 'element-ui';
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({ name: 'jz-flex' })
+@Component({ name: 'jz-flex', components: { Row } })
 export default class extends Vue {
 
     constructor() {
@@ -16,8 +17,8 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root-flex {
-    display: flex;
+.jz-root {
+    // display: flex;
     // justify-content: center;
 }
 </style>

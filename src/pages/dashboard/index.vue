@@ -52,7 +52,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import AdminDashboard from './admin/index.vue';
 import EditorDashboard from './editor/index.vue';
 import { PermissionModule } from '../../store/modules/permission';
-import components from '../../core/middlewares/components/components';
+import components from '../buitlin/components';
 
 @Component({
     name: 'Dashboard',
