@@ -2,10 +2,15 @@
     <div class="jz-root-inline">
         <div class="container">
             <div class="content">
-                <i v-if="builtin" :class="builtin" :style="{ color, backgroundColor }" />
                 <i
+                    class="jz-icon"
+                    v-if="builtin"
+                    :class="builtin"
+                    :style="{ color, backgroundColor }"
+                />
+                <i
+                    class="link jz-icon"
                     v-else
-                    class="link"
                     :style="{ color, backgroundColor, backgroundImage: `url(${href})` }"
                 />
             </div>
@@ -38,7 +43,6 @@ export default class extends Vue {
 </script>
 <style lang="less" scoped>
 .jz-root-inline {
-    width: 20px;
     display: inline-block;
     .container {
         width: 100%;
@@ -49,6 +53,9 @@ export default class extends Vue {
             flex: 1;
             display: flex;
             justify-content: center;
+            .jz-icon{
+                font-size: 20px;
+            }
             .link {
                 width: 20px;
                 height: 20px;
