@@ -1,8 +1,9 @@
 <template>
     <draggable
         v-bind="dragOptions"
-        :tag="(parent && parent.tag) ? 'tsnder' : 'div'"
-        :component-data="{ component: (parent && parent.tag) ? parent.Component : undefined }"
+        v-if="parent && parent.tag"
+        :tag="'tsnder'"
+        :component-data="{ component: parent.Component }"
         :style="(parent || {}).style"
         :class="{ draggable: true, dragbox: parent && parent.tag ? true : false }"
         :list="list"

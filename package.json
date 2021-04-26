@@ -49,9 +49,7 @@
         "simple-progress-webpack-plugin": "^1.1.2",
         "sortablejs": "^1.10.1",
         "tinymce": "^5.1.2",
-        "tui-editor": "^1.4.8",
-        "vant": "^2.5.9",
-        "vue": "^2.6.11",
+        "vue": "^2.5.17",
         "vue-class-component": "^7.2.3",
         "vue-count-to": "^1.0.13",
         "vue-i18n": "^8.17.3",
@@ -98,7 +96,7 @@
         "@vue/cli-plugin-typescript": "^4.0.5",
         "@vue/cli-plugin-unit-jest": "^4.0.5",
         "@vue/cli-plugin-vuex": "^4.0.5",
-        "@vue/cli-service": "^4.5.12",
+        "@vue/cli-service": "^4.0.5",
         "@vue/cli-shared-utils": "^4.5.12",
         "@vue/eslint-config-standard": "^4.0.0",
         "@vue/eslint-config-typescript": "^4.0.0",
@@ -125,7 +123,7 @@
         "typescript": "^3.7.2",
         "vue-cli-plugin-element": "^1.0.1",
         "vue-cli-plugin-style-resources-loader": "^0.1.4",
-        "vue-template-compiler": "^2.6.10",
+        "vue-template-compiler": "^2.5.21",
         "webpack": "^4.41.2"
     },
     "bugs": {

@@ -13,8 +13,9 @@ export default class extends Vue {
 
     public render(h) {
         const Componder: any = this.component;
+        console.log(this.$slots);
         return Componder ? (
-            <Componder {...this}>{this.$slots}</Componder>
-        ) : <div />;
+            <Componder {...this}>{map(this.$slots, slot => slot)}</Componder>
+        ) : <div>{map(this.$slots, slot => slot)}</div>;
     }
 }

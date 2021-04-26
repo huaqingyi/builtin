@@ -3,7 +3,16 @@
         <div class="data">
             <pre>{{ ast }}</pre>
         </div>
-        <renodes v-model="ast" class="context" />
+        <draggable class="context" v-bind="dragOptions" v-model="ast">
+            <renodes
+                class="contenner"
+                v-for="el in ast"
+                v-model="el.children"
+                :parent="el"
+                :key="el.id"
+            />
+        </draggable>
+        <!-- <renodes v-model="ast" class="context" /> -->
         <div class="components">
             <draggable
                 :list="components"
@@ -39,6 +48,15 @@ export default class extends Vue {
 
     public ast: any[];
 
+    public get dragOptions() {
+        return {
+            animation: 200,
+            group: 'ctx',
+            disabled: false,
+            ghostClass: 'ghost'
+        };
+    }
+
     // public get components() {
     //     return [
     //         { tag: 'jz-flex', children: [], style: { width: '100%', minHeight: '20px', background: 'green' }, slot: true },
@@ -64,7 +82,9 @@ export default class extends Vue {
     constructor() {
         super(arguments);
         this.asts = [];
-        this.ast = [];
+        this.ast = [
+            { tag: 'div', children: [] },
+        ];
         this.components = [];
     }
 
@@ -90,7 +110,7 @@ export default class extends Vue {
             { tag: 'jz-text' },
             { tag: 'jz-textarea' },
         ], async component => {
-            const { data } = await Axios.create({}).get(`http://localhost:8081/js/${component.tag}.js`);
+            const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js`);
             const { Config, Component }: PackEVAL = eval(data);
             const { styles, slots, slot = false } = Config;
             const style: any = {};
@@ -122,6 +142,9 @@ export default class extends Vue {
     }
     .context {
         flex: 1;
+        .contenner {
+            height: 100%;
+        }
         .context-inner {
             width: 100%;
             height: auto;
