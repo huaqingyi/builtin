@@ -1,9 +1,8 @@
 <template>
     <draggable
         v-bind="dragOptions"
-        v-if="parent && parent.tag"
-        :tag="'tsnder'"
-        :component-data="{ component: parent.Component }"
+        tag="tsnder"
+        :component-data="componentData()"
         :style="(parent || {}).style"
         :class="{ draggable: true, dragbox: parent && parent.tag ? true : false }"
         :list="list"
@@ -18,10 +17,9 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import TSnder from './tsnder';
 import draggable from 'vuedraggable';
 
-@Component({ name: 'renodes', components: { draggable, 'tsnder': TSnder } })
+@Component({ name: 'renodes', components: { draggable } })
 export default class Renodes extends Vue {
 
     public get dragOptions() {
@@ -48,6 +46,11 @@ export default class Renodes extends Vue {
 
     constructor() {
         super(arguments);
+    }
+
+    public componentData() {
+        if (!this.parent) return {};
+        return { props: { component: this.parent.Component } };
     }
 
     public emitter(value) {

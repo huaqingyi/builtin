@@ -1,47 +1,51 @@
 <template>
-    <div v-if="options.length === 1" class="jz-root">
-        <Checkbox
-            v-if="type === 'default'"
-            :label="options[0].value"
-            :disabled="options[0].disabled || false"
-        >{{ options[0].label }}</Checkbox>
-        <CheckboxButton
-            v-else
-            :label="options[0].value"
-            :disabled="options[0].disabled || false"
-        >{{ options[0].label }}</CheckboxButton>
-    </div>
-    <div v-else class="jz-root">
-        <div v-if="cckall" class="branch">
+    <div v-if="options.length === 1" class="jz-root-inline">
+        <div class="container">
             <Checkbox
                 v-if="type === 'default'"
-                :indeterminate="indeterminate"
-                v-model="all"
-                @change="onCheckAllChange"
-            >{{ label }}</Checkbox>
+                :label="options[0].value"
+                :disabled="options[0].disabled || false"
+            >{{ options[0].label }}</Checkbox>
             <CheckboxButton
                 v-else
-                :indeterminate="indeterminate"
-                v-model="all"
-                @change="onCheckAllChange"
-            >{{ label }}</CheckboxButton>
+                :label="options[0].value"
+                :disabled="options[0].disabled || false"
+            >{{ options[0].label }}</CheckboxButton>
         </div>
-        <CheckboxGroup v-if="type === 'default'" v-model="statecked">
-            <Checkbox
-                v-for="(opt, idx) in options"
-                :label="opt.value"
-                :key="idx"
-                :disabled="opt.disabled || false"
-            >{{ opt.label }}</Checkbox>
-        </CheckboxGroup>
-        <CheckboxGroup v-else v-model="statecked">
-            <CheckboxButton
-                v-for="(opt, idx) in options"
-                :label="opt.value"
-                :key="idx"
-                :disabled="opt.disabled || false"
-            >{{ opt.label }}</CheckboxButton>
-        </CheckboxGroup>
+    </div>
+    <div v-else class="jz-root-inline">
+        <div class="container">
+            <div v-if="cckall" class="branch">
+                <Checkbox
+                    v-if="type === 'default'"
+                    :indeterminate="indeterminate"
+                    v-model="all"
+                    @change="onCheckAllChange"
+                >{{ label }}</Checkbox>
+                <CheckboxButton
+                    v-else
+                    :indeterminate="indeterminate"
+                    v-model="all"
+                    @change="onCheckAllChange"
+                >{{ label }}</CheckboxButton>
+            </div>
+            <CheckboxGroup v-if="type === 'default'" v-model="statecked">
+                <Checkbox
+                    v-for="(opt, idx) in options"
+                    :label="opt.value"
+                    :key="idx"
+                    :disabled="opt.disabled || false"
+                >{{ opt.label }}</Checkbox>
+            </CheckboxGroup>
+            <CheckboxGroup v-else v-model="statecked">
+                <CheckboxButton
+                    v-for="(opt, idx) in options"
+                    :label="opt.value"
+                    :key="idx"
+                    :disabled="opt.disabled || false"
+                >{{ opt.label }}</CheckboxButton>
+            </CheckboxGroup>
+        </div>
     </div>
 </template>
   
@@ -133,10 +137,24 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-inline {
     display: inline-block;
-    .branch {
-        border-bottom: 1px solid #e9e9e9;
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &:before {
+            content: "";
+            flex: 1;
+        }
+        &:after {
+            content: "";
+            flex: 1;
+        }
+        .branch {
+            border-bottom: 1px solid #e9e9e9;
+        }
     }
 }
 </style>

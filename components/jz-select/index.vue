@@ -1,15 +1,19 @@
 <template>
-    <Select
-        v-model="value"
-        :multiple="multiple"
-        :collapse-tags="collapse"
-        :filterable="filterable"
-        :allow-create="create"
-        :placeholder="placeholder"
-        class="jz-root"
-    >
-        <Option v-for="(opt,idx) in options" :key="idx" :option="opt" />
-    </Select>
+    <div class="jz-root-inline">
+        <div class="container">
+            <Select
+                v-model="value"
+                :multiple="multiple"
+                :collapse-tags="collapse"
+                :filterable="filterable"
+                :allow-create="create"
+                :placeholder="placeholder"
+                class="inputs"
+            >
+                <Option v-for="(opt,idx) in options" :key="idx" :option="opt" />
+            </Select>
+        </div>
+    </div>
 </template>
   
 <script lang="ts">
@@ -62,8 +66,25 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-inline {
     width: 200px;
     display: inline-block;
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &:before {
+            content: "";
+            flex: 1;
+        }
+        &:after {
+            content: "";
+            flex: 1;
+        }
+        .inputs {
+            width: 100%;
+        }
+    }
 }
 </style>

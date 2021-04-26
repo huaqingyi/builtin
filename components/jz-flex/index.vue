@@ -1,5 +1,5 @@
 <template>
-    <div class="jz-root">
+    <div class="jz-root-flex">
         <slot></slot>
     </div>
 </template>
@@ -16,7 +16,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-flex {
     display: flex;
     // justify-content: center;
 }

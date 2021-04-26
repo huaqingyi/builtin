@@ -1,5 +1,5 @@
 <template>
-    <div class="jz-root">
+    <div class="jz-root-cflex">
         <slot></slot>
     </div>
 </template>
@@ -15,9 +15,10 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
-    // display: flex;
-    // flex-direction: column;
+.jz-root-cflex {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     // align-content: center;
 }
 </style>

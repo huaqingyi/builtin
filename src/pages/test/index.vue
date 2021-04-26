@@ -3,7 +3,7 @@
         <div class="data">
             <pre>{{ ast }}</pre>
         </div>
-        <draggable class="context" v-bind="dragOptions" v-model="ast">
+        <draggable v-if="ast.length > 0" class="context" v-bind="dragOptions" v-model="ast">
             <renodes
                 class="contenner"
                 v-for="el in ast"
@@ -33,7 +33,7 @@
 import { map } from 'lodash';
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
-import Axios from 'axios';
+import { sysort } from '@/core';
 import { ComponentConfiguration } from 'jz-component-types';
 
 export interface PackEVAL {
@@ -82,9 +82,7 @@ export default class extends Vue {
     constructor() {
         super(arguments);
         this.asts = [];
-        this.ast = [
-            { tag: 'div', children: [] },
-        ];
+        this.ast = [];
         this.components = [];
     }
 
@@ -110,8 +108,9 @@ export default class extends Vue {
             { tag: 'jz-text' },
             { tag: 'jz-textarea' },
         ], async component => {
-            const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js`);
-            const { Config, Component }: PackEVAL = eval(data);
+            // const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js?${Date.now()}`);
+            // const { Config, Component }: PackEVAL = eval(data);
+            const { Config, Component } = await sysort.import(component.tag);
             const { styles, slots, slot = false } = Config;
             const style: any = {};
             const children: any[] = [];
@@ -125,9 +124,10 @@ export default class extends Vue {
                     tag: slot.tag, content: slot.content?.default
                 }))
             }
-            console.log({ ...component, style, children, Config, Component, slot });
+            // console.log({ ...component, style, children, Config, Component, slot });
             return { ...component, style, children, Config, Component, slot };
         }));
+        this.ast.push({ tag: 'div', children: [] });
     }
 }
 </script>

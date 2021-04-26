@@ -1,5 +1,5 @@
 <template>
-    <div class="jz-root">
+    <div class="jz-root-inline">
         <div class="container">
             <div class="content">
                 <i v-if="builtin" :class="builtin" :style="{ color, backgroundColor }" />
@@ -37,7 +37,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-inline {
     width: 20px;
     display: inline-block;
     .container {

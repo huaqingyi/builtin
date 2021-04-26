@@ -1,11 +1,13 @@
 <template>
-    <div class="jz-root">
-        <Input
-            type="textarea"
-            :placeholder="placeholder"
-            :autosize="{ minRows: autosize[0], maxRows: autosize[1] }"
-            v-model="value"
-        />
+    <div class="jz-root-inline">
+        <div class="container">
+            <Input
+                type="textarea"
+                :placeholder="placeholder"
+                :autosize="{ minRows: autosize[0], maxRows: autosize[1] }"
+                v-model="value"
+            />
+        </div>
     </div>
 </template>
   
@@ -34,8 +36,22 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-inline {
     width: 300px;
     display: inline-block;
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &:before {
+            content: "";
+            flex: 1;
+        }
+        &:after {
+            content: "";
+            flex: 1;
+        }
+    }
 }
 </style>

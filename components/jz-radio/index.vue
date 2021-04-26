@@ -1,20 +1,24 @@
 <template>
-    <RadioGroup v-if="type === 'default'" v-model="value" class="jz-root">
-        <Radio
-            v-for="(opt,idx) in options"
-            :key="idx"
-            :label="opt.value"
-            :disabled="opt.disabled"
-        >{{ opt.label }}</Radio>
-    </RadioGroup>
-    <RadioGroup v-else v-model="value" class="jz-root">
-        <RadioButton
-            v-for="(opt,idx) in options"
-            :key="idx"
-            :label="opt.value"
-            :disabled="opt.disabled"
-        >{{ opt.label }}</RadioButton>
-    </RadioGroup>
+    <div class="jz-root-inline">
+        <div class="container">
+            <RadioGroup v-if="type === 'default'" v-model="value">
+                <Radio
+                    v-for="(opt,idx) in options"
+                    :key="idx"
+                    :label="opt.value"
+                    :disabled="opt.disabled"
+                >{{ opt.label }}</Radio>
+            </RadioGroup>
+            <RadioGroup v-else v-model="value">
+                <RadioButton
+                    v-for="(opt,idx) in options"
+                    :key="idx"
+                    :label="opt.value"
+                    :disabled="opt.disabled"
+                >{{ opt.label }}</RadioButton>
+            </RadioGroup>
+        </div>
+    </div>
 </template>
   
 <script lang="ts">
@@ -53,7 +57,21 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-inline {
     display: inline-block;
+    .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &:before {
+            content: "";
+            flex: 1;
+        }
+        &:after {
+            content: "";
+            flex: 1;
+        }
+    }
 }
 </style>

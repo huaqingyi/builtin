@@ -1,5 +1,5 @@
 <template>
-    <ElImage class="jz-root" :src="url" :fit="fit" :preview-src-list="[url]" lazy>
+    <ElImage class="jz-root-inline" :src="url" :fit="fit" :preview-src-list="[url]" lazy>
         <div slot="placeholder" class="image-slot">
             <span class="dot">{{ placeholder }}</span>
         </div>
@@ -32,7 +32,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="less" scoped>
-.jz-root {
+.jz-root-inline {
     width: 100%;
     display: inline-block;
 }
