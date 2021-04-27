@@ -49,7 +49,7 @@
         "simple-progress-webpack-plugin": "^1.1.2",
         "sortablejs": "^1.10.1",
         "tinymce": "^5.1.2",
-        "vue": "^2.5.17",
+        "vue": "^2.6.12",
         "vue-class-component": "^7.2.3",
         "vue-count-to": "^1.0.13",
         "vue-i18n": "^8.17.3",
@@ -123,7 +123,7 @@
         "typescript": "^3.7.2",
         "vue-cli-plugin-element": "^1.0.1",
         "vue-cli-plugin-style-resources-loader": "^0.1.4",
-        "vue-template-compiler": "^2.5.21",
+        "vue-template-compiler": "^2.6.12",
         "webpack": "^4.41.2"
     },
     "bugs": {

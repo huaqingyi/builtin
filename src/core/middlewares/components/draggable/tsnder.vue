@@ -15,6 +15,9 @@ export default class extends Vue {
     @Prop({ type: Function, required: false })
     public component!: Vue;
 
+    @Prop({ type: String, required: false })
+    public handle!: string;
+
     constructor() {
         super(arguments);
     }

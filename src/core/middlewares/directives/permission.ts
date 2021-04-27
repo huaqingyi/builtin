@@ -1,8 +1,7 @@
-import { DirectiveOptions } from 'vue';
-import { DirectiveBinding } from 'vue/types/options'
+import { DirectiveOptions, VNodeDirective } from 'vue';
 import { PermissionModule } from '@/store/modules/permission'
 
-function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
+function checkPermission(el: HTMLElement, binding: VNodeDirective) {
     const { value } = binding
     const roles: string[] = PermissionModule.roles;
 
@@ -24,10 +23,10 @@ function checkPermission(el: HTMLElement, binding: DirectiveBinding) {
 }
 
 export default {
-    inserted(el: HTMLElement, binding: DirectiveBinding) {
+    inserted(el: HTMLElement, binding: VNodeDirective) {
         checkPermission(el, binding)
     },
-    update(el: HTMLElement, binding: DirectiveBinding) {
+    update(el: HTMLElement, binding: VNodeDirective) {
         checkPermission(el, binding)
     }
 } as DirectiveOptions;

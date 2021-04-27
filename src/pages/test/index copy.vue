@@ -3,9 +3,16 @@
         <div class="data">
             <pre>{{ ast }}</pre>
         </div>
-        <draggable class="context" v-bind="dragOptions" v-model="ast">
-            <renodes v-for="el in ast" v-model="el.children" :parent="el" :key="el.id" />
+        <draggable v-if="ast.length > 0" class="context" v-bind="dragOptions" v-model="ast">
+            <renodes
+                class="contenner"
+                v-for="el in ast"
+                v-model="el.children"
+                :parent="el"
+                :key="el.id"
+            />
         </draggable>
+        <!-- <renodes v-model="ast" class="context" /> -->
         <div class="components">
             <draggable
                 :list="components"
@@ -103,8 +110,7 @@ export default class extends Vue {
         ], async component => {
             // const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js?${Date.now()}`);
             // const { Config, Component }: PackEVAL = eval(data);
-            // const { Config, Component } = await sysort.import(component.tag);
-            const { Config, Component } = await import(`../../../components/${component.tag}`);
+            const { Config, Component } = await sysort.import(component.tag);
             const { styles, slots, slot = false } = Config;
             const style: any = {};
             const children: any[] = [];
@@ -121,6 +127,7 @@ export default class extends Vue {
             // console.log({ ...component, style, children, Config, Component, slot });
             return { ...component, style, children, Config, Component, slot };
         }));
+        this.ast.push({ tag: 'div', children: [] });
     }
 }
 </script>
@@ -135,7 +142,69 @@ export default class extends Vue {
     }
     .context {
         flex: 1;
-        height: 100%;
+        .contenner {
+            height: 100%;
+        }
+        .context-inner {
+            width: 100%;
+            height: auto;
+            .list-group-item-padd {
+                padding: 0.75rem;
+            }
+        }
+    }
+    // .components {
+    //     width: 30%;
+    //     border: 1px solid;
+    //     .components-warrp {
+    //         position: relative;
+    //         width: 25%;
+    //         display: inline-block;
+    //         &:before {
+    //             content: "";
+    //             padding-top: 100%;
+    //             display: block;
+    //         }
+    //         .components-container {
+    //             position: absolute;
+    //             top: 0.75rem;
+    //             right: 0.75rem;
+    //             bottom: 0.75rem;
+    //             left: 0.75rem;
+    //             border: 1px solid red;
+    //             .components-render {
+    //                 position: absolute;
+    //                 top: 50%;
+    //                 right: 50%;
+    //                 transform: translate(50%, -50%);
+    //             }
+    //         }
+    //     }
+    // }
+
+    .flexbox {
+        display: flex;
+    }
+
+    .handle,
+    .fhandle {
+        cursor: pointer;
+        background-color: #675e6f;
+        height: 0.75rem;
+        width: 100%;
+    }
+
+    .row {
+        border: 1px solid;
+    }
+    .flex {
+        display: flex;
+        border: 1px solid;
+        .flex-ctx {
+        }
+        .flex-item {
+            flex: 1;
+        }
     }
 }
 </style>
