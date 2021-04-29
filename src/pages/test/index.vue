@@ -26,7 +26,7 @@
 import { map } from 'lodash';
 import { Component, Vue } from 'vue-property-decorator';
 import draggable from 'vuedraggable';
-import { sysort } from '@/core';
+import Axios from 'axios';
 import { ComponentConfiguration } from 'jz-component-types';
 
 export interface PackEVAL {
@@ -101,9 +101,25 @@ export default class extends Vue {
             { tag: 'jz-text' },
             { tag: 'jz-textarea' },
         ], async component => {
-            // const { data } = await Axios.create({}).get(`http://localhost:8080/js/${component.tag}.js?${Date.now()}`);
-            // const { Config, Component }: PackEVAL = eval(data);
-            // const { Config, Component } = await sysort.import(component.tag);
+            // const script = document.createElement('script');
+            // script.id = `${component.tag}/oss-component`;
+            // script.type = `text/javascript`;
+            // script.src = `http://127.0.0.1:8081/${component.tag}/index.js?${Date.now()}`;
+            // script.addEventListener('load', async () => {
+            //     console.log(await import(`oss-component/${component.tag}`));
+            // });
+            // document.head.appendChild(script);
+            
+            // const link = document.createElement('link');
+            // link.rel = 'stylesheet';
+            // link.type = 'text/css';
+            // link.href = `http://127.0.0.1:8081/${component.tag}/index.css?${Date.now()}`;
+            // document.head.appendChild(link);
+
+            // const { data } = await Axios.create({}).get(`http://127.0.0.1:8081/${component.tag}/index.js?${Date.now()}`);
+            // console.log(eval(data));
+            // const { Config, Component } = eval(data);
+
             const { Config, Component } = await import(`../../../components/${component.tag}`);
             const { styles, slots, slot = false } = Config;
             const style: any = {};

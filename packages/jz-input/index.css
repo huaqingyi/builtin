@@ -1,0 +1,24 @@
+.jz-root-inline[data-v-cc3c0c4e] {
+  width: 200px;
+  display: inline-block;
+}
+.jz-root-inline .container[data-v-cc3c0c4e] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.jz-root-inline .container[data-v-cc3c0c4e]:before {
+  content: "";
+  flex: 1;
+}
+.jz-root-inline .container[data-v-cc3c0c4e]:after {
+  content: "";
+  flex: 1;
+}
+.jz-root-inline .container .inputs[data-v-cc3c0c4e] {
+  width: 100%;
+}
+
+
+/*# sourceMappingURL=index.css.map*/

@@ -1510,6 +1510,13 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/uglifyjs-webpack-plugin@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/@types/uglifyjs-webpack-plugin/download/@types/uglifyjs-webpack-plugin-1.1.1.tgz#0aaff52165e2930d0da847109dd1ad1ff09fb32a"
+  integrity sha1-Cq/1IWXikw0NqEcQndGtH/Cfsyo=
+  dependencies:
+    "@types/webpack" "^4"
+
 "@types/undertaker-registry@*":
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/@types/undertaker-registry/download/@types/undertaker-registry-1.0.1.tgz#4306d4a03d7acedb974b66530832b90729e1d1da"
@@ -11552,6 +11559,11 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
+serialize-javascript@^1.7.0:
+  version "1.9.1"
+  resolved "https://registry.npm.taobao.org/serialize-javascript/download/serialize-javascript-1.9.1.tgz#cfc200aef77b600c47da9bb8149c943e798c2fdb"
+  integrity sha1-z8IArvd7YAxH2pu4FJyUPnmML9s=
+
 serialize-javascript@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/serialize-javascript/download/serialize-javascript-4.0.0.tgz#b525e1238489a5ecfc42afacc3fe99e666f4b1aa"
@@ -12226,7 +12238,7 @@ strip-json-comments@^3.0.1:
   resolved "https://registry.npm.taobao.org/strip-json-comments/download/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
 
-style-resources-loader@^1.3.2:
+style-resources-loader@^1.4.1:
   version "1.4.1"
   resolved "https://registry.npm.taobao.org/style-resources-loader/download/style-resources-loader-1.4.1.tgz?cache=0&sync_timestamp=1605616584585&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstyle-resources-loader%2Fdownload%2Fstyle-resources-loader-1.4.1.tgz#87f520e6c8120a71e756726c1c53a78c544ca7db"
   integrity sha1-h/Ug5sgSCnHnVnJsHFOnjFRMp9s=
@@ -12831,6 +12843,26 @@ uglify-js@3.4.x:
   dependencies:
     commander "~2.19.0"
     source-map "~0.6.1"
+
+uglify-js@^3.6.0:
+  version "3.13.4"
+  resolved "https://registry.npm.taobao.org/uglify-js/download/uglify-js-3.13.4.tgz?cache=0&sync_timestamp=1618185908437&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fuglify-js%2Fdownload%2Fuglify-js-3.13.4.tgz#592588bb9f47ae03b24916e2471218d914955574"
+  integrity sha1-WSWIu59HrgOySRbiRxIY2RSVVXQ=
+
+uglifyjs-webpack-plugin@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/uglifyjs-webpack-plugin/download/uglifyjs-webpack-plugin-2.2.0.tgz#e75bc80e7f1937f725954c9b4c5a1e967ea9d0d7"
+  integrity sha1-51vIDn8ZN/cllUybTFoeln6p0Nc=
+  dependencies:
+    cacache "^12.0.2"
+    find-cache-dir "^2.1.0"
+    is-wsl "^1.1.0"
+    schema-utils "^1.0.0"
+    serialize-javascript "^1.7.0"
+    source-map "^0.6.1"
+    uglify-js "^3.6.0"
+    webpack-sources "^1.4.0"
+    worker-farm "^1.7.0"
 
 unbox-primitive@^1.0.0:
   version "1.0.1"

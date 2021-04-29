@@ -1,0 +1,20 @@
+.jz-root-inline[data-v-5a4c5035] {
+  display: inline-block;
+}
+.jz-root-inline .container[data-v-5a4c5035] {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.jz-root-inline .container[data-v-5a4c5035]:before {
+  content: "";
+  flex: 1;
+}
+.jz-root-inline .container[data-v-5a4c5035]:after {
+  content: "";
+  flex: 1;
+}
+
+
+/*# sourceMappingURL=index.css.map*/

@@ -32,37 +32,59 @@ export default Object.assign({}, base, {
                 format: 'compact',
             },]);
 
-        config.when(process.env.NODE_ENV !== 'development', config => {
-            config.optimization.splitChunks({
-                chunks: 'all',
-                cacheGroups: {
-                    libs: {
-                        name: 'chunk-libs',
-                        test: /[\\/]node_modules[\\/]/,
-                        priority: 10,
-                        chunks: 'initial', // only package third parties that are initially dependent
-                    },
-                    antd: {
-                        name: 'chunk-antd', // split elementUI into a single package
-                        priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-                        test: /[\\/]node_modules[\\/]_?ant-design-vue(.*)/, // in order to adapt to cnpm
-                    },
-                    antdIcon: {
-                        name: 'chunk-antd-icon', // split elementUI into a single package
-                        priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
-                        test: /[\\/]node_modules[\\/]_?@ant-design(.*)/, // in order to adapt to cnpm
-                    },
-                    commons: {
-                        name: 'chunk-commons',
-                        test: join(__dirname, '../src/components'),
-                        minChunks: 3, //  minimum common number
-                        priority: 5,
-                        reuseExistingChunk: true,
-                    },
+        // config.when(process.env.NODE_ENV !== 'development', config => {
+        //     config.optimization.splitChunks({
+        //         chunks: 'all',
+        //         cacheGroups: {
+        //             libs: {
+        //                 name: 'chunk-libs',
+        //                 test: /[\\/]node_modules[\\/]/,
+        //                 priority: 10,
+        //                 chunks: 'initial', // only package third parties that are initially dependent
+        //             },
+        //             antd: {
+        //                 name: 'chunk-antd', // split elementUI into a single package
+        //                 priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+        //                 test: /[\\/]node_modules[\\/]_?ant-design-vue(.*)/, // in order to adapt to cnpm
+        //             },
+        //             antdIcon: {
+        //                 name: 'chunk-antd-icon', // split elementUI into a single package
+        //                 priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+        //                 test: /[\\/]node_modules[\\/]_?@ant-design(.*)/, // in order to adapt to cnpm
+        //             },
+        //             commons: {
+        //                 name: 'chunk-commons',
+        //                 test: join(__dirname, '../src/components'),
+        //                 minChunks: 3, //  minimum common number
+        //                 priority: 5,
+        //                 reuseExistingChunk: true,
+        //             },
+        //         },
+        //     });
+        //     config.optimization.runtimeChunk('single');
+        // });
+        config.optimization.splitChunks({
+            chunks: 'all',
+            minSize: 30000,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
+            cacheGroups: {
+                commons: {
+                    name: 'chunk-libs',
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: 10,
+                    chunks: 'initial', // only package third parties that are initially dependent
                 },
-            });
-            config.optimization.runtimeChunk('single');
+                element: {
+                    name: 'chunk-element', // split elementUI into a single package
+                    priority: 20, // the weight needs to be larger than libs and app or it will be packaged into libs or app
+                    test: /[\\/]node_modules[\\/]_?element-ui(.*)/, // in order to adapt to cnpm
+                },
+            },
         });
+        config.optimization.runtimeChunk('single');
     },
     configureWebpack: config => {
         config.plugins.push(

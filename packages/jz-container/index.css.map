@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./components/jz-container/index.vue?f9ba"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","file":"jz-container/index.css","sourcesContent":[".jz-root-cflex[data-v-54477577] {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n}\n"],"sourceRoot":""}
