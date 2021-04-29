@@ -109,16 +109,33 @@ export default class extends Vue {
             //     console.log(await import(`oss-component/${component.tag}`));
             // });
             // document.head.appendChild(script);
-            
+
             // const link = document.createElement('link');
             // link.rel = 'stylesheet';
             // link.type = 'text/css';
             // link.href = `http://127.0.0.1:8081/${component.tag}/index.css?${Date.now()}`;
             // document.head.appendChild(link);
 
-            // const { data } = await Axios.create({}).get(`http://127.0.0.1:8081/${component.tag}/index.js?${Date.now()}`);
-            // console.log(eval(data));
-            // const { Config, Component } = eval(data);
+            // // const { data } = await Axios.create({}).get(`http://127.0.0.1:8081/${component.tag}/index.js?${Date.now()}`);
+            // // console.log(eval(data));
+            // // const { Config, Component } = eval(data);
+            // let { Config, Component }: any = {};
+            // if (component.tag === 'jz-flex' || component.tag === 'jz-container') {
+            //     const pack = await import(`../../../components/${component.tag}`);
+            //     Config = pack.Config;
+            //     Component = pack.Component;
+            // } else {
+            //     const link = document.createElement('link');
+            //     link.rel = 'stylesheet';
+            //     link.type = 'text/css';
+            //     link.href = `http://127.0.0.1:8081/${component.tag}/index.css?${Date.now()}`;
+            //     document.head.appendChild(link);
+            //     await new Promise(r => link.addEventListener('load', r));
+            //     const { data } = await Axios.create({}).get(`http://127.0.0.1:8081/${component.tag}/index.js?${Date.now()}`);
+            //     const pack = eval(data);
+            //     Config = pack.Config;
+            //     Component = pack.Component;
+            // }
 
             const { Config, Component } = await import(`../../../components/${component.tag}`);
             const { styles, slots, slot = false } = Config;
