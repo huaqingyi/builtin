@@ -3,9 +3,9 @@
         <div class="data">
             <pre>{{ ast }}</pre>
         </div>
-        <draggable class="context" v-bind="dragOptions" v-model="ast">
+        <jz-draggable class="context" v-bind="dragOptions" v-model="ast">
             <renodes v-for="el in ast" v-model="el.children" :parent="el" :key="el.id" />
-        </draggable>
+        </jz-draggable>
         <div class="components">
             <draggable
                 :list="components"
@@ -118,7 +118,7 @@ export default class extends Vue {
             // }
 
             const { Config, Component } = await import(`../../../components/${component.tag}`);
-            const { styles, slots, slot = false } = Config;
+            const { styles, slots, wrapper = false } = Config;
             const style: any = {};
             const children: any[] = [];
             map(styles, (f, attr) => {
@@ -132,7 +132,7 @@ export default class extends Vue {
                 }))
             }
             // console.log({ ...component, style, children, Config, Component, slot });
-            return { ...component, style, children, Config, Component, slot };
+            return { ...component, style, children, Config, Component, wrapper };
         }));
     }
 }

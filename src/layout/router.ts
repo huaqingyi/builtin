@@ -102,16 +102,32 @@ export default [
     //         }
     //     ]
     // },
+    // {
+    //     path: '/test',
+    //     component: Layout,
+    //     children: [
+    //         {
+    //             path: '',
+    //             component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+    //             name: 'Dashboard',
+    //             meta: {
+    //                 title: t('route.test'),
+    //                 icon: 'dashboard',
+    //                 affix: true
+    //             }
+    //         }
+    //     ]
+    // },
     {
-        path: '/test',
+        path: '/drag',
         component: Layout,
         children: [
             {
                 path: '',
-                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/test/index.vue'),
+                component: () => import(/* webpackChunkName: "dashboard" */ '@/pages/drag/index.vue'),
                 name: 'Dashboard',
                 meta: {
-                    title: t('route.test'),
+                    title: t('route.drag'),
                     icon: 'dashboard',
                     affix: true
                 }

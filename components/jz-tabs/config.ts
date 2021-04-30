@@ -23,5 +23,4 @@ export default {
     slots: [
         { tag: 'div', attrs: { slot: { title: '新建标签页', type: AttrInputType.INPUT } }, noop: true }
     ],
-    slot: true,
 } as ComponentConfiguration;

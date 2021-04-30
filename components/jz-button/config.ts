@@ -11,5 +11,4 @@ export default {
     slots: [
         { tag: 'div', content: { title: '编辑内容', type: AttrInputType.INPUT, default: '按钮名称' } },
     ],
-    slot: false,
 } as ComponentConfiguration;

@@ -1,6 +1,6 @@
 <template>
     <jz-draggable
-        v-if="parent.slot === true"
+        v-if="parent.wrapper === true"
         v-bind="dragOptions"
         :tag="parent.Component"
         :style="(parent || {}).style"
@@ -11,7 +11,17 @@
     >
         <renodes v-for="el in realValue" v-model="el.children" :parent="el" :key="el.id" />
     </jz-draggable>
-    <component v-else :style="(parent || {}).style" class="dragbox" :is="parent.Component" />
+    <component v-else :style="(parent || {}).style" class="dragbox" :is="parent.Component">
+        <jz-draggable
+            v-bind="dragOptions"
+            class="dragbox-wrapper"
+            :list="list"
+            :value="value"
+            @input="emitter"
+        >
+            <renodes v-for="el in realValue" v-model="el.children" :parent="el" :key="el.id" />
+        </jz-draggable>
+    </component>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
@@ -65,16 +75,15 @@ export default class Renodes extends Vue {
 }
 .dragbox {
     position: relative;
-    background: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     &:hover {
         border: 1px dashed #000;
     }
     .dragbox-wrapper {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 1.25rem;
+        background-color: rgba(0, 188, 212, 0.1);
     }
 }
 </style>
